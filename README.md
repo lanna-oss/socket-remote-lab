@@ -1,6 +1,7 @@
 # README #
 อันนี้เป็นโปรเจคแรกที่ผมเพิ่งทดลองใช้ Git
-https://www.youtube.com/watch?v=5cK3iBmE0Zs <== ผมเองได้ทดลองเขียนโปรแกรมเพื่อควบคุม Touch Screen ซึ่งผมเองได้แชร์ Source Code ของโปรแกรมที่ผมได้ทดลองจนสำเร็จ ซึ่งเป็น Socket Program ระดับ Low Level API สื่อสารตรงระหว่าง ESP32 กับภาษา Python
+
+https://www.youtube.com/watch?v=5cK3iBmE0Zs <== โดยดูจากคลิปนี้ ผมเองได้ทดลองเขียนโปรแกรมเพื่อควบคุมหลอดไฟ LED โดยที่ปุ่มกดเป็น Touch Screen เขียนด้วยภาษา Python ส่วนทางตัวควบคุมไฟ LED เป็น ESP32 ซึ่งอยู่ในตระกูลของ Adruino การสื่อสารใช้ Socket Program ระดับ Low Level API สื่อสารกันระหว่าง Python กับ C
 
 ### What is this repository for? ###
 
