@@ -1,4 +1,5 @@
 อันนี้เป็นโปรเจคแรกที่ผมเพิ่งทดลองใช้ Git
+https://www.youtube.com/watch?v=5cK3iBmE0Zs <== ผมเองได้ทดลองเขียนโปรแกรมเพื่อควบคุม Touch Screen ซึ่งผมเองได้แชร์ Source Code ของโปรแกรมที่ผมได้ทดลองจนสำเร็จ ซึ่งเป็น Socket Program ระดับ Low Level API สื่อสารตรงระหว่าง ESP32 กับภาษา Python
 
 # README #
 
