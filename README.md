@@ -2,6 +2,7 @@
 
 ผมเองได้ทดลองเขียนโปรแกรมเพื่อควบคุมหลอดไฟ LED โดยที่ปุ่มกดเป็น Touch Screen ศึกษาและพัฒนาตามแนวทางขอเทคโนโลยี IoT ซึ่งตัว Touch Screen นั้นผมใช้ Raspberryp PI เป็นอุปกรณ์ Touch Screen เขียนด้วยภาษา Python ส่วนทางตัวควบคุมไฟ LED เป็น ESP32 ซึ่งเป็น Node MCU เป็นอุปกรณ์สำเร็จพร้อม WiFI ซึ่งจัดว่าอยู่ในตระกูล Adruino 
 การสื่อสารใช้ Socket Program ระดับ Low Level API สื่อสารกันระหว่างภาษา Python กับภาษา C
+
 https://www.youtube.com/watch?v=5cK3iBmE0Zs <== ท่านสามารถศึกษาดูตัวอย่างของผลการทดลองได้จากคลิปนี้
 
 ### จุดประสงค์ของการสร้าง Repository ###
