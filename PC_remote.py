@@ -97,26 +97,26 @@ myFont = font.Font(family = 'Helvetica', size = 28, weight = 'bold')
 font.families()
 
 win.title("Touch Screen Button")
-win.geometry('800x480')
+win.geometry('1024x768')
 
 RedButtonMessage = "Red ON"
 GreenButtonMessage = "Green ON"
 YellowButtonMessage = "Yellow ON"
 BlueButtonMessage = "Blue ON"
 
-exitButton  = Button(win, text = "Exit", font = myFont, command = exitProgram, height =2 , width = 6) 
+exitButton  = Button(win, text = "Exit", font = myFont, command = exitProgram, height =2 , width = 9) 
 exitButton.pack(side = BOTTOM)
 
-RedButton = Button(win, text = RedButtonMessage, font = myFont, command = RedSwitch, height = 2, width =8 )
+RedButton = Button(win, text = RedButtonMessage, font = myFont, command = RedSwitch, height = 2, width =9 )
 RedButton.pack(side = LEFT)
 
-GreenButton = Button(win, text = GreenButtonMessage, font = myFont, command = GreenSwitch, height = 2, width =8 )
+GreenButton = Button(win, text = GreenButtonMessage, font = myFont, command = GreenSwitch, height = 2, width =9 )
 GreenButton.pack(side = LEFT)
 
-YellowButton = Button(win, text = YellowButtonMessage, font = myFont, command = YellowSwitch, height = 2, width =8 )
+YellowButton = Button(win, text = YellowButtonMessage, font = myFont, command = YellowSwitch, height = 2, width =9 )
 YellowButton.pack(side = LEFT)
 
-BlueButton = Button(win, text = BlueButtonMessage, font = myFont, command = BlueSwitch, height = 2, width =8 )
+BlueButton = Button(win, text = BlueButtonMessage, font = myFont, command = BlueSwitch, height = 2, width =9 )
 BlueButton.pack(side = LEFT)
 
 mainloop()
