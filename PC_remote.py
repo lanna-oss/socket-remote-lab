@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-
-# This code working on python3 virtual environment
+# This program running on python3 virtual environment.
 
 from tkinter import *
 from tkinter import font
@@ -9,11 +8,10 @@ import socket
 class LightBulb:
     HOST = '192.168.4.1'  # The IP address of ESP32. 
     PORT = 1234            # The port used by the server.
-    color = ""
 
     def __init__(self,color):
         self.color = color
-   
+
     def status(self):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((self.HOST, self.PORT))
@@ -39,7 +37,8 @@ class LightBulb:
         return msg_reply.decode("utf8")
 
     def __del__(self):
-        return 0
+        print('{0} are destroyed.'.format('self.color'))
+        
 
 def RedSwitch():
     Red_status = red.status()
@@ -56,6 +55,7 @@ def RedSwitch():
             RedButton["text"] = "Red OFF"
         else:
             RedButton["text"] = "Red ON"
+
 
 def GreenSwitch():
     Green_status = green.status()
@@ -106,27 +106,40 @@ def BlueSwitch():
             BlueButton["text"] = "Blue ON"
 
 def exitProgram():
-	print("Exit Button pressed")
-	win.quit()	
+    print("Exit Button pressed.")
+    win.quit()	
 
 
 win = Tk()
 myFont = font.Font(family = 'Helvetica', size = 28, weight = 'bold')
 font.families()
 
-win.title("Touch Screen Button")
+win.title("PC remote")
 win.geometry('1024x768')
 
 red = LightBulb("red")
+if red.status() == "ON":
+    RedButtonMessage = "Red OFF"
+else:
+    RedButtonMessage = "Red ON"
+
 green = LightBulb("green")
+if green.status() == "ON":
+    GreenButtonMessage = "Green OFF"
+else:
+    GreenButtonMessage = "Green ON"
+
 yellow = LightBulb("yellow")
+if yellow.status() == "ON":
+    YellowButtonMessage = "Yellow OFF"
+else:
+    YellowButtonMessage = "Yellow ON"
+
 blue = LightBulb("blue")
-
-RedButtonMessage = "Red ON"
-GreenButtonMessage = "Green ON"
-YellowButtonMessage = "Yellow ON"
-BlueButtonMessage = "Blue ON"
-
+if blue.status() == "ON":
+    BlueButtonMessage = "Blue OFF"
+else:
+    BlueButtonMessage = "Blue ON"
 
 exitButton  = Button(win, text = "Exit", font = myFont, command = exitProgram, height =2 , width = 9) 
 exitButton.pack(side = BOTTOM)
