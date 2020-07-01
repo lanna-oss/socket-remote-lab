@@ -35,7 +35,7 @@ def main():
         sys.exit(1)
 
     s.send(Message.encode("ascii"))
-    content = s.recv(10)
+    content = s.recv(11)
     print("ESP32 reply back = {}".format(content.decode("utf8")))
 
 if __name__ == "__main__":
