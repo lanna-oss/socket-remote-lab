@@ -20,7 +20,10 @@ void setup() {
   pinMode(BluePin, OUTPUT);
   Serial.print("WIFI Soft AP : ");
   Serial.println(WIFI_AP_NAME);
-
+/*
+  WiFi.mode(WIFI_AP);
+  WiFi.begin(WIFI_STA_NAME, WIFI_STA_PASS);
+*/
   WiFi.softAP(WIFI_AP_NAME,WIFI_AP_PASS);
 
   Serial.print("ESP32 IP address: ");
@@ -91,11 +94,10 @@ void loop() {
        if(strcmp(Python_msg,"blue status")==0){
          if (digitalRead(BluePin) == 0) {client.write("OFF");} else
          if (digitalRead(BluePin) == 1) {client.write("ON");}         
-       }
+       } else { client.write("Not command"); }
           
     client.stop();
     Serial.println("Disonnected");
     }
-   delay(10);
   }
 }
