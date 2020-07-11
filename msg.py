@@ -22,7 +22,7 @@ def ESP32Conversation():
     
     try:
         s.connect((HOST, PORT))
-        s.settimeout(1)
+        s.settimeout(5)
     except socket.error as err:
         s.close
         print(err)
