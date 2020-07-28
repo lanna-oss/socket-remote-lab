@@ -38,18 +38,18 @@ void loop() {
   if (client) {
     char Remoter_msg[255] = "";
     while (client.connected()) {
-      Serial.print("Remoter connected.");
+      Serial.print("Remoter connected. ");
       while(client.available()> 0) {
         char c = client.read();
         strncat(Remoter_msg, &c,1);
       }
-      Serial.print(" Text = ");
-      Serial.print(Remoter_msg);
       if (Remoter_msg[0] == '\0'){ 
-         Serial.print("--Empty--");
+         Serial.print("Text is Empty.");
          }
       else {
-      Serial.print(" Send = ");
+      Serial.print("Text = \"");
+      Serial.print(Remoter_msg);
+      Serial.print("\". Send = \"");
       if(strcmp(Remoter_msg,"red on")==0){
          digitalWrite(RedPin, HIGH);
          client.write("Red on");
@@ -110,6 +110,7 @@ void loop() {
          client.write("Not command");
          Serial.print("Not command");
          }
+         Serial.print("\"");  
       }
           
     client.stop();
