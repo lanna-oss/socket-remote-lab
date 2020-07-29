@@ -29,7 +29,10 @@ def ESP32Conversation():
 
     s.send(Message.encode("ascii"))
     content = s.recv(11)
-    print("ESP32 reply back = {}".format(content.decode("utf8")))
+    if not content:
+        print("ESP32 return the empty string.")
+    else:
+        print("ESP32 reply back = {}".format(content.decode("utf8")))
 
 def main():
     if Light_connected():
