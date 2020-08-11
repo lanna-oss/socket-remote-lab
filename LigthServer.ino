@@ -2,6 +2,11 @@
 
 #define WIFI_AP_NAME "ESP32Light"
 #define WIFI_AP_PASS NULL
+#define WIFI_STA_NAME  "Wifi name in here." 
+#define WIFI_STA_PASS  "Wifi password in here."
+#define USE_STA_Mode  1
+#define USE_AP_Mode  2
+
 
 #define RedPin  12
 #define GreenPin  14
@@ -11,23 +16,43 @@
 WiFiServer LightServer(1234);
 
 void setup() {
-
+  
+  int Wifi_mode = USE_STA_Mode;
+  /*
+   *  You can change the wifi system by setting a parameter in Wifi_mode variable.    *
+   *  USE_STA_Mode = STA Mode.
+   *  USE_AP_Mode = AP mode.
+   *  
+   */
   Serial.begin(9600);
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(RedPin, OUTPUT);
   pinMode(GreenPin, OUTPUT);
   pinMode(YellowPin, OUTPUT);
   pinMode(BluePin, OUTPUT);
-  Serial.print("WIFI Soft AP : ");
-  Serial.println(WIFI_AP_NAME);
-/*
-  WiFi.mode(WIFI_AP);
-  WiFi.begin(WIFI_STA_NAME, WIFI_STA_PASS);
-*/
-  WiFi.softAP(WIFI_AP_NAME,WIFI_AP_PASS);
-  Serial.print("ESP32 IP address: ");
-  Serial.println(WiFi.softAPIP());
-  Serial.println("The LightServer awaits remote command.");
+  if(Wifi_mode == USE_AP_Mode){
+      Serial.print("WIFI STA Mode : ");
+      Serial.println(WIFI_STA_NAME);
+      WiFi.mode(WIFI_STA);
+      WiFi.begin(WIFI_STA_NAME, WIFI_STA_PASS);
+
+      while (WiFi.status() != WL_CONNECTED){
+        delay(500);
+        Serial.print("#");
+        digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+      }
+      Serial.println(" Loged in.");
+      Serial.print("IP address: ");
+      Serial.println(WiFi.localIP());
+  } else
+  {
+    Serial.print("WIFI Soft AP : ");
+    Serial.println(WIFI_AP_NAME);
+    WiFi.softAP(WIFI_AP_NAME,WIFI_AP_PASS);
+    Serial.print("ESP32 IP address: ");
+    Serial.println(WiFi.softAPIP());
+    Serial.println("The LightServer awaits remote command.");
+  }
 
   LightServer.begin();
 }
