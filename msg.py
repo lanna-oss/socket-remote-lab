@@ -2,7 +2,7 @@
 
 import socket
 
-HOST = '192.168.4.1'  # The IP address of ESP32. 
+HOST = '192.168.1.7'  # The IP address of ESP32. 
 PORT = 1234            # The port used by the server.
 
 def Light_connected():
@@ -27,12 +27,12 @@ def ESP32Conversation():
         s.close
         print(err)
 
-    s.send(Message.encode("ascii"))
-    content = s.recv(11)
+    s.send(Message.encode())
+    content = s.recv(30).decode("utf-8")
     if not content:
         print("ESP32 return the empty string.")
     else:
-        print("ESP32 reply back = {}".format(content.decode("utf8")))
+        print("ESP32 reply back = {}".format(content))
 
 def main():
     if Light_connected():

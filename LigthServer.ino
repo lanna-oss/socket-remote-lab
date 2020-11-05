@@ -2,8 +2,8 @@
 
 #define WIFI_AP_NAME "ESP32Light"
 #define WIFI_AP_PASS NULL
-#define WIFI_STA_NAME  "Wifi name in here." 
-#define WIFI_STA_PASS  "Wifi password in here."
+#define WIFI_STA_NAME  "Test_Wifi" 
+#define WIFI_STA_PASS  "2Many42Secret"
 #define USE_STA_Mode  1
 #define USE_AP_Mode  2
 
@@ -30,7 +30,7 @@ void setup() {
   pinMode(GreenPin, OUTPUT);
   pinMode(YellowPin, OUTPUT);
   pinMode(BluePin, OUTPUT);
-  if(Wifi_mode == USE_AP_Mode){
+  if(Wifi_mode == USE_STA_Mode){
       Serial.print("WIFI STA Mode : ");
       Serial.println(WIFI_STA_NAME);
       WiFi.mode(WIFI_STA);
